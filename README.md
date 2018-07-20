@@ -60,4 +60,4 @@ yarn add eslint eslint-loader eslint-config-airbnb eslint-plugin-import eslint-f
 
 ```
 ### 编写webpack
-1. 为了控制开发环境和生产环境，我们可以新建dist文件夹。分别书写开发环境和生产环境的webpack
+1. 为了控制开发环境和生产环境，我们可以新建build文件夹。分别书写开发环境和生产环境的webpack
