@@ -4,9 +4,9 @@
   "description": "React 16.0 boilerplate with react-router-dom, redux & webpack 4.x",
   "main": "src/index.js",
   "scripts": {
-    "start": "cross-env NODE_ENV=development webpack-dev-server --mode development --progress --config build/webpack.dev.conf.js",
-    "build": "cross-env NODE_ENV=production webpack -p --mode production --progress --colors --config ./build/webpack.prod.conf.js",
-    "analysis": "cross-env NODE_ENV=analysis webpack -p --mode production --progress --colors --config ./build/webpack.prod.conf.js ",
+    "start": "cross-env NODE_ENV=development webpack-dev-server --mode development --config build/webpack.dev.conf.js",
+    "build": "cross-env NODE_ENV=production webpack -p --mode production --progress --config ./build/webpack.prod.conf.js",
+    "analysis": "cross-env NODE_ENV=analysis webpack -p --mode production --progress --config ./build/webpack.prod.conf.js ",
     "test": "jest --coverage",
     "clean": "rm -rf dist/",
     "lint": "eslint --ext .js,.jsx src"
@@ -15,7 +15,7 @@
     "type": "git",
     "url": "git+https://github.com/Dante-dan/react-sample.git"
   },
-  "author": "duanjialiang <duanjialiang@antiy.cn>",
+  "author": "duanjl <634344393@qq.com>",
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/Dante-dan/react-sample/issues"

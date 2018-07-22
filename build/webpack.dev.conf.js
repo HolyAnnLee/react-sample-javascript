@@ -53,9 +53,12 @@ const devWebpackConfig = merge(baseWebpackConfig, {
       title: 'React Demo',
       template: path.resolve(__dirname, '../src/index.ejs'),
       inject: true
-    })]
+    }),
+    new CopyWebpackPlugin([{
+      from: './src/favicon.ico'
+    }, ])
+  ]
 })
-
 module.exports = new Promise((resolve, reject) => {
   portfinder.basePort = PORT
   portfinder.getPort((err, port) => {

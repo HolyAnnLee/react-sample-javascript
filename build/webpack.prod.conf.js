@@ -10,6 +10,7 @@ const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const OptimizeCSSPlugin = require('optimize-css-assets-webpack-plugin')
 const PostCssSafe   = require('postcss-safe-parser');
 const BundleAnalyzerPlugin = process.env.NODE_ENV=== 'analysis' ? require('webpack-bundle-analyzer').BundleAnalyzerPlugin:null
+const CopyWebpackPlugin = require('copy-webpack-plugin')
 
 const env = process.env.NODE_ENV === 'testing'
   ? {NODE_ENV: '"testing"'}
@@ -26,8 +27,8 @@ const webpackConfig = merge(baseWebpackConfig, {
   },
   output: {
     path: path.resolve(__dirname, '../dist'),
-    filename: ('assets/js/[name].[hash:8].js'),
-    chunkFilename: ('assets/js/[name]-[id].[hash:8].js')
+    filename: ('js/[name].[hash:8].js'),
+    chunkFilename: ('js/[name]-[id].[hash:8].js')
   },
   //4.0配置
   optimization: {
@@ -39,8 +40,8 @@ const webpackConfig = merge(baseWebpackConfig, {
     }
   },
   plugins: [
-    new CleanWebpackPlugin(path.resolve(__dirname, './dist/*'), {
-      root: __dirname,
+    new CleanWebpackPlugin(path.resolve(__dirname, '../dist/*'), {
+      root: path.resolve(__dirname, '../'),
       verbose: true,
       dry: false
     }),
@@ -48,8 +49,8 @@ const webpackConfig = merge(baseWebpackConfig, {
       'process.env': env
     }),
     new MiniCssExtractPlugin({
-      filename: 'assets/css/[name].[hash:8].css',
-      chunkFilename: 'assets/css/[name]-[id].[hash:8].css',
+      filename: 'css/[name].[hash:8].css',
+      chunkFilename: 'css/[name]-[id].[hash:8].css',
     }),
     // Compress extracted CSS. We are using this plugin so that possible
     // duplicated CSS from different components can be deduped.
@@ -80,6 +81,12 @@ const webpackConfig = merge(baseWebpackConfig, {
     new webpack.HashedModuleIdsPlugin(),
     // enable scope hoisting
     new webpack.optimize.ModuleConcatenationPlugin(),
+    new CopyWebpackPlugin([{
+      from: './src/favicon.ico'
+    }, {
+      from: './src/assets/',
+      to: 'assets'
+    }]),
     process.env.NODE_ENV=== 'analysis' ? new BundleAnalyzerPlugin() : ()=>{}
   ]
 })

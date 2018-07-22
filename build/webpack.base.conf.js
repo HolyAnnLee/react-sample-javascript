@@ -119,9 +119,4 @@ module.exports = {
   //   tls: 'empty',
   //   child_process: 'empty'
   // }
-  plugins: [
-    new CopyWebpackPlugin([{
-      from: './src/favicon.ico'
-    }, ])
-    ]
 }
