@@ -17,8 +17,7 @@ ssh.connect({
   username: 'root',
   port: 22,
   // password,
-  // privateKey: "./.ssh/id_rsa",
-  privateKey: "C:\\Users\\duan\\.ssh\\id_rsa"
+  privateKey: "./.ssh/id_rsa",
 })
 /*
  Or
