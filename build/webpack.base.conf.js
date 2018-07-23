@@ -1,8 +1,6 @@
 'use strict'
 const path = require('path')
-const utils = require('./utils')
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
-const CopyWebpackPlugin = require('copy-webpack-plugin')
 const autoprefixer = require('autoprefixer');
 function resolve (dir) {
   return path.join(__dirname, '..', dir)
@@ -12,8 +10,7 @@ function resolve (dir) {
 module.exports = {
   context: path.resolve(__dirname, '../'),
   entry: {
-    babel: "babel-polyfill",
-    app: ('./src/index.js')
+    index: ['./src/index.js','babel-polyfill']
   },
   output: {
     path: path.resolve(__dirname, '../dist'),
