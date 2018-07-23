@@ -7,13 +7,14 @@
     "start": "cross-env NODE_ENV=development webpack-dev-server --mode development --config build/webpack.dev.conf.js",
     "build": "cross-env NODE_ENV=production webpack -p --mode production --progress --config ./build/webpack.prod.conf.js",
     "analysis": "cross-env NODE_ENV=analysis webpack -p --mode production --progress --config ./build/webpack.prod.conf.js ",
+    "depoly": "npm run build && node ./deploy.js",
     "test": "jest --coverage",
     "clean": "rm -rf dist/",
     "lint": "eslint --ext .js,.jsx src"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/Dante-dan/react-sample.git"
+    "url": "git+https://github.com/Dante-dan/react-sample-javascript.git"
   },
   "author": "duanjl <634344393@qq.com>",
   "license": "MIT",
@@ -63,6 +64,7 @@
     "less-loader": "^4.1.0",
     "mini-css-extract-plugin": "^0.4.1",
     "node-notifier": "^5.2.1",
+    "node-ssh": "^5.1.2",
     "optimize-css-assets-webpack-plugin": "^5.0.0",
     "portfinder": "^1.0.13",
     "postcss-import": "^11.1.0",
