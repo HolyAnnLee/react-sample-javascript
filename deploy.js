@@ -8,7 +8,7 @@ opn = new require('opn')
 ssh = new node_ssh()
 host = 'localhost'
 var localDir = './dist'
-var remoteDir = '/opt/beanstalk_frontend/new'
+var remoteDir = '/opt/frontend/new'
 var removeCommand = 'rm -rf ./*'
 var pwdCommand = 'pwd'
 
