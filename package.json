@@ -4,8 +4,8 @@
   "description": "React 16.0 boilerplate with react-router-dom, redux & webpack 4.x",
   "main": "src/index.js",
   "scripts": {
-    "start": "cross-env NODE_ENV=development webpack-dev-server --mode development --config build/webpack.dev.conf.js",
-    "build": "cross-env NODE_ENV=production webpack -p --mode production --progress --config ./build/webpack.prod.conf.js",
+    "start": "webpack-dev-server --mode development --config build/webpack.dev.conf.js",
+    "build": "webpack -p --mode production --progress --config ./build/webpack.prod.conf.js",
     "analysis": "cross-env NODE_ENV=analysis webpack -p --mode production --progress --config ./build/webpack.prod.conf.js ",
     "depoly": "npm run build && node ./deploy.js",
     "test": "jest --coverage",
