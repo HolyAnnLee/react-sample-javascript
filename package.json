@@ -9,7 +9,6 @@
     "analysis": "cross-env NODE_ENV=analysis webpack -p --mode production --progress --config ./build/webpack.prod.conf.js ",
     "depoly": "npm run build && node ./deploy.js",
     "test": "jest --coverage",
-    "clean": "rm -rf dist/",
     "lint": "eslint --ext .js,.jsx src"
   },
   "repository": {

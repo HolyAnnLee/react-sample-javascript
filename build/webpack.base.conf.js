@@ -10,7 +10,7 @@ function resolve (dir) {
 module.exports = {
   context: path.resolve(__dirname, '../'),
   entry: {
-    index: ['./src/index.js','babel-polyfill']
+    index: ['babel-polyfill','./src/index.js']
   },
   output: {
     path: path.resolve(__dirname, '../dist'),
@@ -60,6 +60,7 @@ module.exports = {
             loader: 'less-loader',
             options: {
               javascriptEnabled: true,
+              sourceMap: false,
             },
           },
         ],

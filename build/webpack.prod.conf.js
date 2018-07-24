@@ -64,6 +64,7 @@ const webpackConfig = merge(baseWebpackConfig, {
       filename: 'index.html',
       template: './src/index.ejs',
       title: 'React Demo',
+      inject: false, // true->'head' || false->'body'
       minify: {
         //删除Html注释
         removeComments: true,
