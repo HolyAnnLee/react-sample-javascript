@@ -1,5 +1,6 @@
 # react-sample-javascript
 React 16.0 boilerplate with react & webpack 4. (for javascript)
+> 欢迎加入QQ群：36952712 一起交流
 [TOC]
 ## 项目初始化
 ### 统一规范代码格式
