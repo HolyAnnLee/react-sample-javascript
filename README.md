@@ -1,5 +1,5 @@
 # react-sample-javascript
-React 16.0 boilerplate with react & webpack 4. (for javascript)
+React 16.0 boilerplate with react-router-dom, redux &amp; webpack 4. (for javascript)
 [TOC]
 ## 项目初始化
 ### 统一规范代码格式
