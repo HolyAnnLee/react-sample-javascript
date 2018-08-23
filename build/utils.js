@@ -27,6 +27,7 @@ exports.cssLoaders = function (options) {
     }
   }
 
+
   // generate loader string to be used with extract text plugin
   function generateLoaders (loader, loaderOptions) {
     const loaders = options.usePostCSS ? [cssLoader, postcssLoader] : [cssLoader]
@@ -50,7 +51,7 @@ exports.cssLoaders = function (options) {
   return {
     css: generateLoaders(),
     postcss: generateLoaders(),
-    less: generateLoaders('less'),
+    less: generateLoaders('less', { javascriptEnabled: true }),
     sass: generateLoaders('sass', { indentedSyntax: true }),
     scss: generateLoaders('sass'),
     stylus: generateLoaders('stylus'),
@@ -67,11 +68,19 @@ exports.styleLoaders = function (options) {
     const loader = loaders[extension]
     output.push({
       test: new RegExp('\\.' + extension + '$'),
-      exclude: /node_modules/,
+      // exclude: /node_modules/,
       use: loader
-    })
+    });
+    // 处理node_modules中的样式问题
+    // if (options.extract === ) {
+    //   output.push({
+    //     test: new RegExp('\\.' + extension + '$'),
+    //     include: /node_modules/,
+    //     use: loader
+    //   })
+    // }
   }
-
+  // console.log(output)
   return output
 }
 

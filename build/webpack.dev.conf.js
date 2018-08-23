@@ -15,7 +15,7 @@ const PORT = (process.env.PORT && Number(process.env.PORT)) || '8080'
 const devWebpackConfig = merge(baseWebpackConfig, {
   mode: 'development',
   module: {
-    rules: utils.styleLoaders({ sourceMap: true, usePostCSS: true })
+    rules: utils.styleLoaders({ sourceMap: true, usePostCSS: true, extract: false, })
   },
   devtool: 'eval-source-map',
   devServer: {
