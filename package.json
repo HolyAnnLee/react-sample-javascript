@@ -11,12 +11,11 @@
     "test": "jest --coverage",
     "fix": "eslint --fix \"src/**/*.js\"",
     "format": "prettier --single-quote --write \"src/**/*.js\" && yarn fix",
-    "precommit": "lint-staged",
+    "precommit": "yarn format && lint-staged",
     "commitmsg": "commitlint -e $GIT_PARAMS"
   },
   "lint-staged": {
     "*.js": [
-      "yarn run format -- ",
       "git add"
     ]
   },
