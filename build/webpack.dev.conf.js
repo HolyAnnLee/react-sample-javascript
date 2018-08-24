@@ -15,7 +15,7 @@ const PORT = (process.env.PORT && Number(process.env.PORT)) || '8080'
 const devWebpackConfig = merge(baseWebpackConfig, {
   mode: 'development',
   module: {
-    rules: utils.styleLoaders({ sourceMap: true, usePostCSS: true })
+    rules: utils.styleLoaders({ sourceMap: true, usePostCSS: true, extract: false, })
   },
   devtool: 'eval-source-map',
   devServer: {
@@ -43,7 +43,7 @@ const devWebpackConfig = merge(baseWebpackConfig, {
     //开启HMR(热替换功能,替换更新部分,不重载页面！)
     new webpack.HotModuleReplacementPlugin(),
     //显示模块相对路径
-    new webpack.NamedModulesPlugin(), // HMR shows correct file names in console on update.
+    new webpack.NamedModulesPlugin(),
     //不显示错误信息
     new webpack.NoEmitOnErrorsPlugin(),
     // https://github.com/ampedandwired/html-webpack-plugin
@@ -55,7 +55,7 @@ const devWebpackConfig = merge(baseWebpackConfig, {
       inject: true
     }),
     new CopyWebpackPlugin([{
-      from: './src/favicon.ico'
+      from: './src/assets/img/favicon.ico'
     }, ])
   ]
 })

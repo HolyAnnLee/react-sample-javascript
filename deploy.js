@@ -1,25 +1,28 @@
 // usage: https://www.npmjs.com/package/node-ssh
-var path, node_ssh, ssh, fs, opn, host
+let path; let node_ssh; let ssh; let fs; let opn; let
+  host;
 
-fs = require('fs')
-path = require('path')
-node_ssh = require('node-ssh')
-opn = new require('opn')
-ssh = new node_ssh()
-host = 'localhost'
-var localDir = './dist'
-var remoteDir = '/opt/frontend/new'
-var removeCommand = 'rm -rf ./*'
-var pwdCommand = 'pwd'
+fs = require('fs');
+path = require('path');
+node_ssh = require('node-ssh');
 
-ssh.connect({
-  host: host,
-  username: 'root',
-  port: 22,
-  // password,
-  privateKey: "./.ssh/id_rsa",
-})
-/*
+opn = new require('opn');
+ssh = new node_ssh();
+host = 'localhost';
+const localDir = './dist';
+const remoteDir = '/opt/frontend/new';
+const removeCommand = 'rm -rf ./*';
+const pwdCommand = 'pwd';
+
+ssh
+  .connect({
+    host,
+    username: 'root',
+    port: 22,
+    // password,
+    privateKey: './.ssh/id_rsa',
+  })
+  /*
  Or
  ssh.connect({
    host: 'localhost',
@@ -28,18 +31,21 @@ ssh.connect({
  })
  if you want to use the raw string as private key
  */
-  .then(function() {
-    ssh.execCommand(removeCommand, { cwd:remoteDir }).then(function(result) {
-      console.log('STDOUT: ' + result.stdout)
-      console.log('STDERR: ' + result.stderr)
-      ssh.putDirectory(localDir, remoteDir).then(function() {
-        console.log("The File thing is done")
-        ssh.dispose()
-        opn('http://'+host, {app:['chrome']})
-      }, function(error) {
-        console.log("Something's wrong")
-        console.log(error)
-        ssh.dispose()
-      })
-    })
-  })
+  .then(() => {
+    ssh.execCommand(removeCommand, { cwd: remoteDir }).then((result) => {
+      console.log(`STDOUT: ${result.stdout}`);
+      console.log(`STDERR: ${result.stderr}`);
+      ssh.putDirectory(localDir, remoteDir).then(
+        () => {
+          console.log('The File thing is done');
+          ssh.dispose();
+          opn(`http://${host}`, { app: ['chrome'] });
+        },
+        (error) => {
+          console.log("Something's wrong");
+          console.log(error);
+          ssh.dispose();
+        },
+      );
+    });
+  });

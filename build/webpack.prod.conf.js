@@ -7,8 +7,6 @@ const baseWebpackConfig = require('./webpack.base.conf')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const CleanWebpackPlugin = require('clean-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
-const OptimizeCSSPlugin = require('optimize-css-assets-webpack-plugin')
-const PostCssSafe   = require('postcss-safe-parser');
 const BundleAnalyzerPlugin = process.env.NODE_ENV=== 'analysis' ? require('webpack-bundle-analyzer').BundleAnalyzerPlugin:null
 const CopyWebpackPlugin = require('copy-webpack-plugin')
 
@@ -52,11 +50,6 @@ const webpackConfig = merge(baseWebpackConfig, {
       filename: 'css/[name].[hash:8].css',
       chunkFilename: 'css/[name]-[id].[hash:8].css',
     }),
-    // Compress extracted CSS. We are using this plugin so that possible
-    // duplicated CSS from different components can be deduped.
-    new OptimizeCSSPlugin({
-      cssProcessorOptions: { parser: PostCssSafe, map: { inline: false } }
-    }),
     // generate dist index.html with correct asset hash for caching.
     // you can customize output by editing /index.html
     // see https://github.com/ampedandwired/html-webpack-plugin
@@ -64,7 +57,7 @@ const webpackConfig = merge(baseWebpackConfig, {
       filename: 'index.html',
       template: './src/index.ejs',
       title: 'React Demo',
-      inject: false, // true->'head' || false->'body'
+      inject: true, // true->'head' || false->'body'
       minify: {
         //删除Html注释
         removeComments: true,
@@ -82,9 +75,10 @@ const webpackConfig = merge(baseWebpackConfig, {
     new webpack.HashedModuleIdsPlugin(),
     // enable scope hoisting
     new webpack.optimize.ModuleConcatenationPlugin(),
+    //{
+    //       from: './src/favicon.ico'
+    //     },
     new CopyWebpackPlugin([{
-      from: './src/favicon.ico'
-    }, {
       from: './src/assets/',
       to: 'assets'
     }]),

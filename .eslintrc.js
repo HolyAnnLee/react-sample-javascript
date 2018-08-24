@@ -3,7 +3,7 @@
 module.exports = {
   root: true,
   parserOptions: {
-    parser: 'babel-eslint'
+    parser: "babel-eslint"
   },
   env: {
     browser: true,
@@ -17,31 +17,30 @@ module.exports = {
   },
   settings: {
     "import/resolver": {
-      "babel-module": {}
+      "babel-module": {
+        "alias": {
+          "@": './src'
+        }
+      }
     }
   },
   extends: [
-    'airbnb' //使用Airbnb风格的代码规范
+    "airbnb", //使用Airbnb风格的代码规范
   ],
-  // required to lint *.vue files
-  plugins: [
-    'react',
-    'jsx-a11y',
-    'import'
-  ],
+
+  plugins: ["react", "jsx-a11y", "import"],
   // add your custom rules here
   rules: {
     // allow async-await
-    'generator-star-spacing': 'off',
+    "generator-star-spacing": "off",
     // allow debugger during development
-    'no-debugger': process.env.NODE_ENV === 'production' ? 'error' : 'off',
-
-    "react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx"] }],
+    "no-debugger": process.env.NODE_ENV === "production" ? "error" : "off",
+    "react/jsx-filename-extension": [1, { extensions: [".js", ".jsx"] }],
     "jsx-a11y/href-no-hash": "off",
-    "react/prop-types": [1, { "ignore": ["children"] }],
+    "react/prop-types": [1, { ignore: ["children"] }],
     "react/prefer-stateless-function": 0,
     "react/forbid-prop-types": [0],
-    "import/extensions": [1, { "js": "never", "json": "never" }],
+    "import/extensions": [1, { js: "never", json: "never" }],
     "import/no-extraneous-dependencies": [0]
   }
-}
+};
