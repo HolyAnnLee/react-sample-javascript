@@ -40,7 +40,7 @@ module.exports = {
     "react/prop-types": [1, { ignore: ["children"] }],
     "react/prefer-stateless-function": 0,
     "react/forbid-prop-types": [0],
-    "import/extensions": [1, { js: "never", json: "never" }],
-    "import/no-extraneous-dependencies": [0]
+    "import/extensions": [2, { js: "never", json: "never",svg: "always" }],
+    "import/no-extraneous-dependencies": [0],
   }
 };

@@ -1,18 +1,17 @@
-import React, { Component } from 'react';
-import './app.css';
+import React from 'react';
+import { BrowserRouter, Route } from 'react-router-dom';
 import Layout from './pages/Layout';
+import routes from './routes';
 
-class App extends Component {
-  render() {
-    return (
-      <div>
-        <div className="hello-world">
-          hello world
-          <img alt="logo" src="./assets/img/logo.svg" width="120px" />
-        </div>
-        <Layout />
-      </div>
-    );
-  }
+function App() {
+  return (
+    <BrowserRouter>
+      {routes.map((route) => {
+        <Route {...route}>
+          <Layout style={{ height: '100%' }} />
+        </Route>;
+      })}
+    </BrowserRouter>
+  );
 }
 export default App;
