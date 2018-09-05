@@ -6,21 +6,22 @@
  **/
 import Loadable from 'react-loadable';
 import { Spin } from 'antd';
+// import Home from './pages/Home/Home';
 
 const paths = ['./pages/Home'];
 function createLoadable() {
-  let routes = {};
-  paths.forEach(path => {
-    let pathArr = path.split('/');
-    let property = pathArr[pathArr.length - 1];
-    routes[property] = Loadable({
-      loader: () => import('./pages/Home'),
-      loading: Spin,
-      delay: 300
+  return paths.map((path) => {
+    const pathArr = path.split('/');
+    const property = pathArr[pathArr.length - 1];
+    return Loadable({
+      name: property,
+      loader: () => import(`${path}`),
+      // loader: () => Home,
+      Spin,
+      delay: 300,
     });
   });
-  return paths;
 }
 const routes = createLoadable();
-
+console.log('routes', routes);
 export default routes;

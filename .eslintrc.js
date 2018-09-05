@@ -2,8 +2,10 @@
 
 module.exports = {
   root: true,
+  parser: "babel-eslint",
   parserOptions: {
-    parser: "babel-eslint"
+    // sourceType: 'module',
+    allowImportExportEverywhere: true
   },
   env: {
     browser: true,
@@ -28,7 +30,7 @@ module.exports = {
     "airbnb", //使用Airbnb风格的代码规范
   ],
 
-  plugins: ["react", "jsx-a11y", "import"],
+  plugins: [ "babel","react", "jsx-a11y", "import"],
   // add your custom rules here
   rules: {
     // allow async-await
@@ -37,6 +39,7 @@ module.exports = {
     "no-debugger": process.env.NODE_ENV === "production" ? "error" : "off",
     "react/jsx-filename-extension": [1, { extensions: [".js", ".jsx"] }],
     "jsx-a11y/href-no-hash": "off",
+    "spaced-comment": 0,
     "react/prop-types": [1, { ignore: ["children"] }],
     "react/prefer-stateless-function": 0,
     "react/forbid-prop-types": [0],
