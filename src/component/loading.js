@@ -5,6 +5,25 @@
  * @Last modified time： 9/5/2018
  **/
 import React from 'react';
+import { Spin } from 'antd';
 
-const loading = () => <div>Loading...</div>;
-export default loading;
+export default function Loading(props) {
+  const {
+    isLoading, timedOut, pastDelay, error,
+  } = props;
+  console.log('loading', props);
+  if (isLoading) {
+    if (timedOut) {
+      return <div>Loader timed out!</div>;
+    }
+    if (pastDelay) {
+      return <Spin size="lage" />;
+    }
+    return null;
+  }
+  if (error) {
+    console.log(error);
+    return <div>Error! Component failed to load</div>;
+  }
+  return null;
+}
