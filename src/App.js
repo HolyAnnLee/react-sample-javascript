@@ -1,15 +1,18 @@
 import React from 'react';
 import { BrowserRouter, Route } from 'react-router-dom';
 import Layout from './pages/Layout';
-import Home from './pages/Home/Home';
+import routes from './routes';
 
 function App() {
   return (
     <BrowserRouter>
       <Layout style={{ height: '100%' }}>
-        {/*{routes.map(route => (*/}
-        <Route key="1" path="/home" exact component={Home} />
-        {/*))}*/}
+        {routes.map((route) => {
+          console.log('route', route);
+          return (
+            <Route key={route.name} path="/home" exact component={route} />
+          );
+        })}
       </Layout>
     </BrowserRouter>
   );
