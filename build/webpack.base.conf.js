@@ -41,51 +41,6 @@ module.exports = {
           }
         }]
       },
-      // // 处理node_modules中的样式问题
-      // {
-      //   test: /\.less$/,
-      //   include: /node_modules/,
-      //   use: [
-      //     MiniCssExtractPlugin.loader,
-      //     'css-loader',
-      //     {
-      //       loader: 'postcss-loader',
-      //       options: {
-      //         plugins: () => [autoprefixer({ browsers: 'last 5 versions' })],
-      //         sourceMap: false,
-      //       },
-      //     },
-      //     {
-      //       loader: 'less-loader',
-      //       options: {
-      //         javascriptEnabled: true,
-      //         sourceMap: false,
-      //       },
-      //     },
-      //   ],
-      // },
-      // {
-      //   test: /\.css$/,
-      //   include: /node_modules/,
-      //   use: [
-      //     MiniCssExtractPlugin.loader,
-      //     {
-      //       loader: 'css-loader',
-      //       options: {
-      //         sourceMap: false,
-      //         importLoaders: 2,
-      //         minimize: false,
-      //       }
-      //     },
-      //     {
-      //       loader: 'postcss-loader',
-      //       options: {
-      //         plugins: () => [autoprefixer({ browsers: 'last 5 versions' })],
-      //         sourceMap: false,
-      //       },
-      //     },
-      //   ],
-      // },
       {
         test: /\.(png|jpe?g|gif|svg)(\?.*)?$/,
         loader: 'url-loader',

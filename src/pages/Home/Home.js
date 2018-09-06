@@ -7,7 +7,6 @@
 import React from 'react';
 import Highcharts from 'highcharts/highstock';
 import HighchartsReact from 'highcharts-react-official';
-import './Home.less';
 
 function getData(n) {
   const arr = [];
@@ -56,41 +55,77 @@ const options = {
   },
   series: [
     {
-      date: getData(1000),
+      data: getData(10),
       name: 'Active',
       lineWidth: 0.5,
     },
     {
-      data: getData(1000),
+      data: getData(10),
       name: 'Waiting',
-      lineWidth: 0.5,
-    },
-    {
-      data: getData(1000),
-      name: 'Reading',
-      lineWidth: 0.5,
-    },
-    {
-      date: getData(1000),
-      name: 'Writing',
       lineWidth: 0.5,
     },
   ],
 };
 
+function getOptions(names, data) {
+  const optionsTemp = JSON.parse(JSON.stringify(options));
+  if (names.length === data.length) {
+    optionsTemp.series = names.map((name, index) => ({
+      data: data[index],
+      name,
+      lineWidth: 0.5,
+    }));
+  }
+  return optionsTemp;
+}
+
 function Home() {
-  console.log('highcharts-react-official');
+  const option1 = getOptions(
+    ['Active', 'Reading', 'Waiting', 'Writing'],
+    [getData(100), getData(100), getData(100), getData(100)],
+  );
+  const option2 = getOptions(
+    ['Active', 'Reading', 'Waiting', 'Writing'],
+    [getData(100), getData(100), getData(100), getData(100)],
+  );
+  const option3 = getOptions(
+    ['Active', 'Reading', 'Waiting', 'Writing'],
+    [getData(100), getData(100), getData(100), getData(100)],
+  );
+  const option4 = getOptions(
+    ['Active', 'Reading', 'Waiting', 'Writing'],
+    [getData(100), getData(100), getData(100), getData(100)],
+  );
+  const option5 = getOptions(
+    ['Active', 'Reading', 'Waiting', 'Writing'],
+    [getData(100), getData(100), getData(100), getData(100)],
+  );
+  const option6 = getOptions(
+    ['Active', 'Reading', 'Waiting', 'Writing'],
+    [getData(100), getData(100), getData(100), getData(100)],
+  );
+  const option7 = getOptions(
+    ['Active', 'Reading', 'Waiting', 'Writing'],
+    [getData(100), getData(100), getData(100), getData(100)],
+  );
+
   return (
-    <div id="charts-container">
+    <section
+      style={{
+        display: 'grid',
+        gridTemplateColumns: 'repeat(10,10%)',
+        gridTemplateRows: 'repeat(9,auto)',
+      }}
+    >
       <div
         id="chart1"
         style={{ gridRow: '1 / span 3', gridColumn: '1 / span 4' }}
       >
         <HighchartsReact
           highcharts={Highcharts}
-          options={options}
-          redraw
-          oneToOne
+          options={option1}
+          // redraw
+          // oneToOne
         />
       </div>
       <div
@@ -99,9 +134,9 @@ function Home() {
       >
         <HighchartsReact
           highcharts={Highcharts}
-          options={options}
-          redraw
-          oneToOne
+          options={option2}
+          // redraw
+          // oneToOne
         />
       </div>
       <div
@@ -110,9 +145,9 @@ function Home() {
       >
         <HighchartsReact
           highcharts={Highcharts}
-          options={options}
-          redraw
-          oneToOne
+          options={option3}
+          // redraw
+          // oneToOne
         />
       </div>
       <div
@@ -121,9 +156,9 @@ function Home() {
       >
         <HighchartsReact
           highcharts={Highcharts}
-          options={options}
-          redraw
-          oneToOne
+          options={option4}
+          // redraw
+          // oneToOne
         />
       </div>
       <div
@@ -132,9 +167,9 @@ function Home() {
       >
         <HighchartsReact
           highcharts={Highcharts}
-          options={options}
-          redraw
-          oneToOne
+          options={option5}
+          // redraw
+          // oneToOne
         />
       </div>
       <div
@@ -143,23 +178,23 @@ function Home() {
       >
         <HighchartsReact
           highcharts={Highcharts}
-          options={options}
-          redraw
-          oneToOne
+          options={option6}
+          // redraw
+          // oneToOne
         />
       </div>
       <div
         id="chart3"
-        style={{ gridRow: '8 / span 3', gridColumn: '7 / span 3' }}
+        style={{ gridRow: '8 / span 3', gridColumn: '7 / span 4' }}
       >
         <HighchartsReact
           highcharts={Highcharts}
-          options={options}
-          redraw
-          oneToOne
+          options={option7}
+          // redraw
+          // oneToOne
         />
       </div>
-    </div>
+    </section>
   );
 }
 export default Home;
