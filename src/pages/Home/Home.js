@@ -36,23 +36,15 @@ function getData(n) {
 }
 
 const options = {
-  chart: {
-    zoomType: 'x',
-  },
-  boost: {
-    useGPUTranslations: true,
-  },
-  tooltip: {
-    valueDecimals: 2,
-  },
+  chart: { zoomType: 'x' },
+  boost: { useGPUTranslations: true },
+  tooltip: { valueDecimals: 2 },
   legend: {
     layout: 'vertical',
     align: 'right',
     verticalAlign: 'middle',
   },
-  title: {
-    text: 'Nginx Status / m',
-  },
+  title: { text: 'Nginx Status / m' },
   series: [
     {
       data: getData(10),
@@ -79,7 +71,7 @@ function getOptions(names, data) {
   return optionsTemp;
 }
 
-function Home() {
+function Home(props) {
   const option1 = getOptions(
     ['Active', 'Reading', 'Waiting', 'Writing'],
     [getData(100), getData(100), getData(100), getData(100)],
@@ -108,7 +100,7 @@ function Home() {
     ['Active', 'Reading', 'Waiting', 'Writing'],
     [getData(100), getData(100), getData(100), getData(100)],
   );
-
+  console.log(props);
   return (
     <section
       style={{

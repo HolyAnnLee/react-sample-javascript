@@ -8,16 +8,13 @@ import React from 'react';
 import { Spin } from 'antd';
 
 export default function Loading(props) {
-  const {
-    isLoading, timedOut, pastDelay, error,
-  } = props;
-  console.log('loading', props);
+  const { isLoading, timedOut, pastDelay, error } = props;
   if (isLoading) {
     if (timedOut) {
       return <div>Loader timed out!</div>;
     }
     if (pastDelay) {
-      return <Spin size="lage" />;
+      return <Spin size="large" style={{ margin: '40%' }} />;
     }
     return null;
   }

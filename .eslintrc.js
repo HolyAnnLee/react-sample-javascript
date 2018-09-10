@@ -39,6 +39,7 @@ module.exports = {
     "no-debugger": process.env.NODE_ENV === "production" ? "error" : "off",
     "react/jsx-filename-extension": [1, { extensions: [".js", ".jsx"] }],
     "jsx-a11y/href-no-hash": "off",
+    "object-curly-newline": ["error", { "multiline": true }],
     "spaced-comment": 0,
     "react/prop-types": [1, { ignore: ["children"] }],
     "react/prefer-stateless-function": 0,

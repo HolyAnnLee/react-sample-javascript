@@ -2,12 +2,31 @@ import React from 'react';
 import { Layout, Menu, Icon } from 'antd';
 import { Link } from 'react-router-dom';
 import imgLogo from '@/assets/img/logo.svg';
+// import './index.less';
+import styled from 'styled-components';
 
-const {
-  Header, Content, Footer, Sider,
-} = Layout;
+const { Header, Footer, Sider } = Layout;
+
+const Content = styled.div`
+  flex: 1;
+  margin: 24px 16px 0;
+  overflow: auto;
+  &::-webkit-scrollbar {
+    width: 6px;
+    background-color: #eef1f5;
+  }
+  &::-webkit-scrollbar-thumb {
+    border-radius: 10px;
+    background: #eef1f5 linear-gradient(to top, #cfd9df 0%, #e2ebf0 100%);
+  }
+  &::-webkit-scrollbar-track {
+    background-color: #eef1f5;
+    border-radius: 10px;
+  }
+`;
+
 const MyLayout = ({ children }) => {
-  console.log(children);
+  console.log('layout');
   return (
     <Layout style={{ height: '100%' }}>
       <Sider
@@ -27,13 +46,15 @@ const MyLayout = ({ children }) => {
         <Menu theme="dark" mode="inline" defaultSelectedKeys={['1']}>
           <Menu.Item key="1">
             <Link to="/home" className="nav-text">
-              <Icon type="user" />
+              <Icon type="home" />
               <span className="nav-text">Home</span>
             </Link>
           </Menu.Item>
           <Menu.Item key="2">
-            <Icon type="video-camera" />
-            <span className="nav-text">nav 2</span>
+            <Link to="/content" className="nav-text">
+              <Icon type="video-camera" />
+              <span className="nav-text">content</span>
+            </Link>
           </Menu.Item>
           <Menu.Item key="3">
             <Icon type="upload" />
@@ -47,7 +68,7 @@ const MyLayout = ({ children }) => {
       </Sider>
       <Layout>
         <Header style={{ background: '#fff', padding: 0 }} />
-        <Content style={{ margin: '24px 16px 0' }}>
+        <Content className="content">
           <div
             style={{
               padding: 24,
@@ -60,7 +81,7 @@ const MyLayout = ({ children }) => {
           </div>
         </Content>
         <Footer style={{ textAlign: 'center' }}>
-          Ant Design ©2018 Created by Ant UED
+          Anti ©2018 Created by Anti
         </Footer>
       </Layout>
     </Layout>

@@ -1,12 +1,19 @@
 # react-sample-javascript
 React 16.0 boilerplate with react & webpack 4. (for javascript)
-> 欢迎加入QQ群：36952712 一起交流
 [TOC]
 ## 项目初始化
 ### 统一规范代码格式
+
+
+
 1. 配置 `.editorconfig` 使得IDE的方式统一 (见代码)
 2. 配置 `.eslintrc.js` 使得代码规范统一 (见代码)
+
+
 ### 预期功能
+
+
+
 1. 管理资源： 能加载css、sccc、less、以及静态文件
 2. 管理输出：将打包后的静态文件输出至static目录下，以各自的文件类型管理
 3. dev：使用source map，方便调试时代码定位
@@ -14,7 +21,10 @@ React 16.0 boilerplate with react & webpack 4. (for javascript)
 5. dev：设置默认打开8080，被占用则寻找下一个空接口
 6. production：代码分离，打包css文件，css代码压缩，js代码压缩，输出到模板html，配置gzip
 7. analysis:：使用BundleAnalyzerPlugin 分析打包后的性能
+
+
 ### 目录结构
+
 ```bash
 :.
 │  .babelrc      		#babel的规则以及插件
@@ -47,20 +57,54 @@ React 16.0 boilerplate with react & webpack 4. (for javascript)
         └─img
                 logo.svg
 ```
+
+
 ### 安装依赖
+
+
+
 ```bash
 yarn install / npm install
 ```
+
+
 ### 启动项目
+
+
+
 ```
 yarn start/npm run start
 ```
+
+
 ### 打包项目
+
+
+
 ```
 yarn build/npm run build
 ```
+
 ### 部署项目
+
 ```
 yarn deploy
 ```
+
+### 代码检查
+
+```bash
+yarn fix
+```
+
+### commit
+为了保证代码质量，加入pre-commit钩子。
+要求commit格式为：
+```
+action: head
+body
+```
+
+
+
 
